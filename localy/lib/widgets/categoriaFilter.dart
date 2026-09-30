@@ -21,7 +21,7 @@ class Categoriafilter extends StatelessWidget {
           return Padding(
             padding: const EdgeInsets.only(right: 7),
             child: FilterChip(
-              label: Text('categoria'),
+              label: Text('${categoria}'),
               selected: isSelected,
               showCheckmark: false,
               onSelected: (_) {

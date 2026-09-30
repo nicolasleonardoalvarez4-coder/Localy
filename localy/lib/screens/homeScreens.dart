@@ -19,44 +19,62 @@ class _HomescreensState extends State<Homescreens> {
     Producto(
       nombre: 'Brownie',
       detalle: '3 unidades',
+      categoria: 'Bebidas',
+      stock: 10,
       icono: '🍫',
       indicador: '#1',
+      precio: 120,
     ),
 
     Producto(
       nombre: 'Café Americano',
       detalle: '2 unidades',
+      categoria: 'Comida',
+      stock: 8,
       icono: '☕',
       indicador: '#2',
+      precio: 120,
     ),
 
     Producto(
       nombre: 'Jugo Natural',
       detalle: '2 unidades',
+      categoria: 'Postres',
+      stock: 5,
       icono: '🧃',
       indicador: '#3',
+      precio: 120,
     ),
   ];
   final masbajo = [
     Producto(
       nombre: 'Brownie',
       detalle: '3 unidades',
+      categoria: 'Bebida',
+      stock: 5,
       icono: '🍫',
       indicador: '#1',
+      precio: 120,
     ),
 
     Producto(
       nombre: 'Café Americano',
       detalle: '2 unidades',
+      categoria: 'Comida',
+      stock: 3,
       icono: '☕',
       indicador: '#2',
+      precio: 120,
     ),
 
     Producto(
       nombre: 'Jugo Natural',
       detalle: '2 unidades',
+      stock: 2,
+      categoria: 'Bebida',
       icono: '🧃',
       indicador: '#3',
+      precio: 120,
     ),
   ];
   @override
