@@ -64,12 +64,14 @@ class _ProductoscreensState extends State<Productoscreens> {
               },
             ),
             const SizedBox(height: 10),
-            Column(
-              children: 
-                productos.map(
-                  (producto) => Productocartd(producto: producto,
-                  ),
-                ).toList(),
+            Expanded(
+              child: ListView.builder(
+                padding: const EdgeInsets.only(top: 10, bottom: 12),
+                itemCount: productos.length,
+                itemBuilder: (context, index) {
+                  return Productocartd(producto: productos[index]);
+                },
+              ),
             ),
           ],
         ),

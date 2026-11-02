@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:localy/widgets/bottomNavBar.dart';
 import 'homeScreens.dart';
 import 'productoScreens.dart';
-
+import 'ventasScreens.dart';
 class Mainscreens extends StatefulWidget {
   const Mainscreens({super.key});
 
@@ -15,7 +15,8 @@ class _MainscreensState extends State<Mainscreens> {
 
   final List<Widget> screens = const [
     Homescreens(),
-    Productoscreens()
+    Productoscreens(),
+    Ventasscreens(),
   ];
 
   @override

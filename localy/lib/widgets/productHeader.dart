@@ -22,8 +22,16 @@ class Productheader extends StatelessWidget {
               )),
               onPressed: () {
                 showModalBottomSheet(
+                  isScrollControlled: true,
+                  useSafeArea: true,
                   context: context,
-                  builder: (context) => Ventanafromproduct(),
+                  builder: (context) => Padding(padding: EdgeInsets.only(
+                    bottom: MediaQuery.viewInsetsOf(context).bottom,
+                  ),child: const FractionallySizedBox(
+                    heightFactor: 0.7,
+                    child: Ventanafromproduct(),
+                  ),
+                  ),
                 );
               },
 
