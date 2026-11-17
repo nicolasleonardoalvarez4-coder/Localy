@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:localy/core/theme/app_colors.dart';
+import 'package:localy/core/theme/app_spacing.dart';
+import 'package:localy/core/theme/app_text_styles.dart';
 
 class Actioncard extends StatelessWidget {
   final IconData icon;
@@ -14,34 +17,27 @@ class Actioncard extends StatelessWidget {
     required this.backgroundColor,
     required this.foregroudColor,
     required this.onTap,
-    });
+  });
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(//widget de Material Design que permite que cualquier widget hijo responda a gestos táctiles mostrando una animación visual de onda
+    return InkWell(
       onTap: onTap,
       child: Container(
         height: 60,
         decoration: BoxDecoration(
           color: backgroundColor,
-          borderRadius: BorderRadius.circular(18),
-          border: Border.all(color: Colors.grey.shade300)
+          borderRadius: BorderRadius.circular(AppRadius.action),
+          border: Border.all(color: AppColors.border),
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              icon,
-              color: foregroudColor,
-              size: 20,
-            ),
-            const SizedBox(width: 8,),
+            Icon(icon, color: foregroudColor, size: 20),
+            const SizedBox(width: AppSpacing.sm),
             Text(
               texto,
-              style: TextStyle(
-                color: foregroudColor,
-                fontWeight: FontWeight.w600,
-              ),
+              style: AppTextStyles.actionLabel.copyWith(color: foregroudColor),
             ),
           ],
         ),

@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:localy/core/theme/app_colors.dart';
+import 'package:localy/core/theme/app_spacing.dart';
+import 'package:localy/core/theme/app_text_styles.dart';
 
 class Salescard extends StatelessWidget {
   final double ingresos;
   final int ventas;
+
   const Salescard({super.key, required this.ingresos, required this.ventas});
 
   @override
@@ -10,13 +14,11 @@ class Salescard extends StatelessWidget {
     return Container(
       height: 170,
       width: double.infinity,
-      padding: const EdgeInsets.all(20),
-
+      padding: const EdgeInsets.all(AppSpacing.xxl),
       decoration: BoxDecoration(
-        color: Colors.black,
-        borderRadius: BorderRadius.circular(25),
+        color: AppColors.dark,
+        borderRadius: BorderRadius.circular(AppRadius.hero),
       ),
-
       child: Stack(
         children: [
           Positioned(
@@ -25,9 +27,9 @@ class Salescard extends StatelessWidget {
             child: Container(
               width: 150,
               height: 150,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.green.withValues(alpha: .2),
+                color: AppColors.primarySoft,
               ),
             ),
           ),
@@ -37,58 +39,37 @@ class Salescard extends StatelessWidget {
             child: Container(
               width: 90,
               height: 90,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
-                color: Colors.green.withValues(alpha: .4)
+                color: AppColors.primaryMuted,
               ),
-            )
             ),
-
+          ),
           Padding(
-            padding: const EdgeInsets.only(top: 10,left: 10),
-
+            padding: const EdgeInsets.only(
+              top: AppSpacing.md,
+              left: AppSpacing.md,
+            ),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'INGRESOS DE HOY',
-                  style: TextStyle(
-                    color: Colors.white70,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-
-                const SizedBox(height: 2),
-
+                const Text('INGRESOS DE HOY', style: AppTextStyles.salesLabel),
+                const SizedBox(height: AppSpacing.xxs),
                 Text(
                   '\$${ingresos.toStringAsFixed(0)}',
-                  style: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 30,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTextStyles.salesAmount,
                 ),
-
-                const SizedBox(height: 12),
-
+                const SizedBox(height: AppSpacing.lg),
                 Container(
                   padding: const EdgeInsets.symmetric(
                     horizontal: 14,
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: Colors.greenAccent,
-                    borderRadius: BorderRadius.circular(20),
+                    color: AppColors.primaryLight,
+                    borderRadius: BorderRadius.circular(AppRadius.xl),
                   ),
-                  child: Text(
-                    '+$ventas ventas',
-                    style: const TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w600,
-                      fontSize: 10,
-                    ),
-                  ),
+                  child: Text('+$ventas ventas', style: AppTextStyles.badge),
                 ),
               ],
             ),

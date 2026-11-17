@@ -6,7 +6,7 @@ class Producto {
   final String icono;
   final String indicador;
   final int precio;
-  
+
   const Producto({
     required this.nombre,
     required this.detalle,
@@ -14,6 +14,6 @@ class Producto {
     required this.categoria,
     required this.icono,
     required this.indicador,
-    required this.precio
+    required this.precio,
   });
 }

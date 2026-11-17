@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:localy/widgets/actionCard.dart';
-import 'package:localy/widgets/metriCard.dart';
-import 'package:localy/widgets/productItem.dart';
-import 'package:localy/widgets/productSection.dart';
-import 'package:localy/widgets/salesCard.dart';
-import 'package:localy/widgets/topNavBar.dart';
-import 'package:localy/models/producto.dart';
+import 'package:localy/core/theme/app_colors.dart';
+import 'package:localy/core/theme/app_spacing.dart';
+import 'package:localy/features/dashboard/presentation/widgets/action_card.dart';
+import 'package:localy/features/dashboard/presentation/widgets/home_app_bar.dart';
+import 'package:localy/features/dashboard/presentation/widgets/metric_card.dart';
+import 'package:localy/features/dashboard/presentation/widgets/product_item.dart';
+import 'package:localy/features/dashboard/presentation/widgets/product_section.dart';
+import 'package:localy/features/dashboard/presentation/widgets/sales_card.dart';
+import 'package:localy/features/products/domain/producto.dart';
 
 class Homescreens extends StatefulWidget {
   const Homescreens({super.key});
@@ -25,7 +27,6 @@ class _HomescreensState extends State<Homescreens> {
       indicador: '#1',
       precio: 120,
     ),
-
     Producto(
       nombre: 'Café Americano',
       detalle: '2 unidades',
@@ -35,7 +36,6 @@ class _HomescreensState extends State<Homescreens> {
       indicador: '#2',
       precio: 120,
     ),
-
     Producto(
       nombre: 'Jugo Natural',
       detalle: '2 unidades',
@@ -46,6 +46,7 @@ class _HomescreensState extends State<Homescreens> {
       precio: 120,
     ),
   ];
+
   final masbajo = [
     Producto(
       nombre: 'Brownie',
@@ -56,7 +57,6 @@ class _HomescreensState extends State<Homescreens> {
       indicador: '#1',
       precio: 120,
     ),
-
     Producto(
       nombre: 'Café Americano',
       detalle: '2 unidades',
@@ -66,7 +66,6 @@ class _HomescreensState extends State<Homescreens> {
       indicador: '#2',
       precio: 120,
     ),
-
     Producto(
       nombre: 'Jugo Natural',
       detalle: '2 unidades',
@@ -77,19 +76,23 @@ class _HomescreensState extends State<Homescreens> {
       precio: 120,
     ),
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(181, 240, 237, 237),
+      backgroundColor: AppColors.background,
       appBar: const topNavBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 5, right: 5),
+          padding: const EdgeInsets.only(
+            left: AppSpacing.xs,
+            right: AppSpacing.xs,
+          ),
           child: Column(
             children: [
-              Salescard(ingresos: 495, ventas: 4),
-              const SizedBox(height: 10),
-              Row(
+              const Salescard(ingresos: 495, ventas: 4),
+              const SizedBox(height: AppSpacing.md),
+              const Row(
                 children: [
                   Expanded(
                     child: Metricard(
@@ -98,7 +101,7 @@ class _HomescreensState extends State<Homescreens> {
                       descripcion: 'HOY',
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  SizedBox(width: AppSpacing.md),
                   Expanded(
                     child: Metricard(
                       titulo: 'TICKET PROMEDIO',
@@ -108,31 +111,31 @@ class _HomescreensState extends State<Homescreens> {
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: AppSpacing.md),
               Row(
                 children: [
                   Expanded(
                     child: Actioncard(
                       icon: Icons.point_of_sale,
                       texto: 'NUEVA VENTA',
-                      backgroundColor: Colors.green,
-                      foregroudColor: Colors.white,
+                      backgroundColor: AppColors.primary,
+                      foregroudColor: AppColors.onPrimary,
                       onTap: () {},
                     ),
                   ),
-                  const SizedBox(width: 10),
+                  const SizedBox(width: AppSpacing.md),
                   Expanded(
                     child: Actioncard(
                       icon: Icons.inventory_2_outlined,
                       texto: 'Ver Productos',
-                      backgroundColor: Colors.white,
-                      foregroudColor: Colors.black,
+                      backgroundColor: AppColors.surface,
+                      foregroudColor: AppColors.textPrimary,
                       onTap: () {},
                     ),
                   ),
                 ],
               ),
-              const SizedBox(height: 10),
+              const SizedBox(height: AppSpacing.md),
               Column(
                 children: [
                   Productsection(
@@ -141,7 +144,7 @@ class _HomescreensState extends State<Homescreens> {
                         .map((producto) => Productitem(producto: producto))
                         .toList(),
                   ),
-                  const SizedBox(height: 10),
+                  const SizedBox(height: AppSpacing.md),
                   Productsection(
                     titulo: 'STOCK BAJO',
                     items: masbajo

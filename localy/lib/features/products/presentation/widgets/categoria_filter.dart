@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:localy/core/theme/app_colors.dart';
+import 'package:localy/core/theme/app_spacing.dart';
+import 'package:localy/core/theme/app_text_styles.dart';
 
 class Categoriafilter extends StatelessWidget {
   final String categoriaSeleccionada;
@@ -19,25 +22,21 @@ class Categoriafilter extends StatelessWidget {
         children: categorias.map((categoria) {
           final isSelected = categoriaSeleccionada == categoria;
           return Padding(
-            padding: const EdgeInsets.only(right: 7),
+            padding: const EdgeInsets.only(right: AppSpacing.sm),
             child: FilterChip(
-              label: Text('${categoria}'),
+              label: Text(categoria),
               selected: isSelected,
               showCheckmark: false,
               onSelected: (_) {
                 onCategoriaSeleccionada(categoria);
               },
-              backgroundColor: Colors.white,
-              selectedColor: Colors.black,
-
-              labelStyle: TextStyle(
-                color: isSelected ? Colors.white : Colors.black87,
-                fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-                fontSize: 14,
-              ),
-
+              backgroundColor: AppColors.surface,
+              selectedColor: AppColors.dark,
+              labelStyle: isSelected
+                  ? AppTextStyles.chipSelected
+                  : AppTextStyles.chip,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(AppRadius.xl),
               ),
             ),
           );
